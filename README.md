@@ -1,7 +1,7 @@
 # 🎬 JuzzWatch – Cine-Stream
 
 A movie discovery application built with **Next.js 15** and the **TMDB API**.
-
+live website Link: https://cine-stream-next-six.vercel.app/
 ### ✨ Features
 - 🎥 Browse popular movies
 - 🔍 Search movies
