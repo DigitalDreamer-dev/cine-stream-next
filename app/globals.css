@@ -984,3 +984,503 @@ a {
     justify-content: center;
   }
 }
+.browse-layout {
+  display: grid;
+  grid-template-columns: 240px 1fr;
+  gap: 30px;
+  padding: 20px 40px;
+  align-items: start;
+}
+
+.filter-sidebar {
+  position: sticky;
+  top: 90px;
+  padding: 20px;
+  border-radius: 16px;
+  background: rgba(255, 255, 255, 0.08);
+  backdrop-filter: blur(12px);
+}
+
+.filter-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 25px;
+}
+
+.filter-header h2 {
+  margin: 0;
+}
+
+.filter-header button {
+  border: none;
+  background: transparent;
+  cursor: pointer;
+  color: inherit;
+}
+
+.filter-group {
+  margin-bottom: 25px;
+}
+
+.filter-group h3 {
+  margin-bottom: 10px;
+}
+
+.filter-group select {
+  width: 100%;
+  padding: 10px;
+  border-radius: 8px;
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  background: #111;
+  color: white;
+  cursor: pointer;
+}
+
+.browse-results {
+  min-width: 0;
+}
+
+.no-filter-results {
+  text-align: center;
+  padding: 50px 20px;
+  font-size: 18px;
+}
+
+@media (max-width: 768px) {
+  .browse-layout {
+    grid-template-columns: 1fr;
+    padding: 20px;
+  }
+
+  .filter-sidebar {
+    position: static;
+  }
+}
+:root {
+  --bg-color: #0b0b0f;
+  --text-color: #ffffff;
+  --card-bg: #15151c;
+  --border-color: rgba(255, 255, 255, 0.12);
+}
+
+html[data-theme="light"] {
+  --bg-color: #f5f5f5;
+  --text-color: #111111;
+  --card-bg: #ffffff;
+  --border-color: rgba(0, 0, 0, 0.12);
+}
+
+body {
+  background: var(--bg-color);
+  color: var(--text-color);
+  transition:
+    background-color 0.25s ease,
+    color 0.25s ease;
+}
+
+.movie-card {
+  background: var(--card-bg);
+  border-color: var(--border-color);
+}
+
+.theme-toggle {
+  border: 1px solid var(--border-color);
+  background: var(--card-bg);
+  color: var(--text-color);
+  padding: 8px 14px;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: 0.2s ease;
+}
+
+.theme-toggle:hover {
+  transform: translateY(-1px);
+}
+/* ================================
+   SEARCH + MOOD SEARCH THEME
+================================ */
+
+.search-container input,
+.mood-search input {
+  background: var(--card-bg);
+  color: var(--text-color);
+  border: 1px solid var(--border-color);
+  transition:
+    background-color 0.25s ease,
+    color 0.25s ease,
+    border-color 0.25s ease;
+}
+
+.search-container input::placeholder,
+.mood-search input::placeholder {
+  color: #888;
+}
+
+/* AI Mood Matcher */
+.mood-search-container {
+  color: var(--text-color);
+}
+
+.mood-search-container h2 {
+  color: var(--text-color);
+}
+
+.mood-search-container > p {
+  color: var(--text-color);
+  opacity: 0.65;
+}
+
+.mood-search button {
+  background: linear-gradient(
+    135deg,
+    #8b5cf6,
+    #6d28d9
+  );
+  color: white;
+  border: none;
+}
+
+.mood-search button:disabled {
+  opacity: 0.7;
+  cursor: not-allowed;
+}
+
+/* Result */
+.mood-result {
+  background: var(--card-bg);
+  color: var(--text-color);
+  border: 1px solid var(--border-color);
+}
+
+.mood-result span {
+  opacity: 0.7;
+}
+
+.mood-result h3 {
+  color: var(--text-color);
+}
+
+/* Error */
+.mood-error {
+  color: #ef4444;
+}
+/* =========================================
+   GLOBAL THEME
+========================================= */
+
+:root {
+  --bg-color: #0b0b0f;
+  --text-color: #ffffff;
+  --card-bg: #15151c;
+  --input-bg: #222;
+  --border-color: rgba(255, 255, 255, 0.12);
+  --muted-text: #aaa;
+}
+
+html[data-theme="light"] {
+  --bg-color: #f5f5f7;
+  --text-color: #171717;
+  --card-bg: #ffffff;
+  --input-bg: #ffffff;
+  --border-color: rgba(0, 0, 0, 0.12);
+  --muted-text: #666;
+}
+
+html,
+body {
+  background: var(--bg-color);
+  color: var(--text-color);
+}
+
+body {
+  transition:
+    background-color 0.25s ease,
+    color 0.25s ease;
+}
+
+
+/* =========================================
+   SEARCH
+========================================= */
+
+.search-container input {
+  width: 700px;
+  max-width: 90%;
+  padding: 16px 25px;
+
+  background: var(--input-bg);
+  color: var(--text-color);
+
+  border: 1px solid var(--border-color);
+  outline: none;
+  border-radius: 50px;
+
+  font-size: 18px;
+
+  transition:
+    background-color 0.25s ease,
+    color 0.25s ease,
+    border-color 0.25s ease,
+    box-shadow 0.25s ease;
+}
+
+.search-container input::placeholder {
+  color: var(--muted-text);
+}
+
+.search-container input:focus {
+  box-shadow: 0 0 20px rgba(139, 92, 246, 0.3);
+}
+
+
+/* =========================================
+   AI MOOD MATCHER
+========================================= */
+
+.mood-search-container {
+  text-align: center;
+  margin: 35px auto 50px;
+  padding: 30px 25px;
+
+  color: var(--text-color);
+
+  transition:
+    background-color 0.25s ease,
+    color 0.25s ease,
+    box-shadow 0.25s ease;
+}
+
+.mood-search-container h2 {
+  color: var(--text-color);
+  margin-bottom: 8px;
+  font-size: 30px;
+}
+
+.mood-search-container > p {
+  color: var(--muted-text);
+  margin-bottom: 22px;
+}
+
+
+/* Mood input + button */
+
+.mood-search {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 15px;
+  flex-wrap: wrap;
+}
+
+.mood-search input {
+  width: 420px;
+  padding: 16px 22px;
+
+  background: var(--input-bg);
+  color: var(--text-color);
+
+  border: 1px solid var(--border-color);
+  outline: none;
+  border-radius: 50px;
+
+  font-size: 16px;
+
+  transition:
+    background-color 0.25s ease,
+    color 0.25s ease,
+    border-color 0.25s ease,
+    box-shadow 0.25s ease;
+}
+
+.mood-search input::placeholder {
+  color: var(--muted-text);
+}
+
+.mood-search input:focus {
+  box-shadow: 0 0 20px rgba(139, 92, 246, 0.35);
+}
+
+
+/* Button */
+
+.mood-search button {
+  padding: 16px 28px;
+
+  border: none;
+  border-radius: 50px;
+
+  cursor: pointer;
+
+  color: white;
+  font-weight: 600;
+
+  background: linear-gradient(
+    135deg,
+    #8b5cf6,
+    #6d28d9
+  );
+
+  transition: 0.3s;
+}
+
+.mood-search button:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 10px 25px rgba(139, 92, 246, 0.35);
+}
+
+.mood-search button:disabled {
+  opacity: 0.6;
+  cursor: not-allowed;
+  transform: none;
+}
+
+
+/* =========================================
+   LIGHT MODE — MOOD MATCHER
+========================================= */
+
+html[data-theme="light"] .mood-search-container {
+  max-width: 900px;
+
+  background: rgba(255, 255, 255, 0.8);
+
+  border: 1px solid rgba(0, 0, 0, 0.08);
+
+  border-radius: 24px;
+
+  box-shadow:
+    0 12px 35px rgba(0, 0, 0, 0.07);
+
+  backdrop-filter: blur(12px);
+}
+
+html[data-theme="light"] .mood-search-container h2 {
+  color: #171717;
+}
+
+html[data-theme="light"] .mood-search-container > p {
+  color: #666;
+}
+
+html[data-theme="light"] .search-container input,
+html[data-theme="light"] .mood-search input {
+  background: #ffffff;
+  color: #171717;
+
+  border-color: #dedede;
+
+  box-shadow:
+    0 4px 15px rgba(0, 0, 0, 0.05);
+}
+
+html[data-theme="light"] .search-container input:focus,
+html[data-theme="light"] .mood-search input:focus {
+  border-color: #8b5cf6;
+
+  box-shadow:
+    0 0 0 3px rgba(139, 92, 246, 0.12);
+}
+
+
+/* =========================================
+   MOOD RESULT
+========================================= */
+
+.mood-result {
+  width: fit-content;
+  min-width: 300px;
+
+  margin: 25px auto 0;
+  padding: 20px 30px;
+
+  border-radius: 15px;
+
+  background: var(--card-bg);
+  color: var(--text-color);
+
+  border: 1px solid var(--border-color);
+
+  box-shadow:
+    0 10px 30px rgba(0, 0, 0, 0.15);
+}
+
+.mood-result span {
+  color: #a78bfa;
+  font-size: 14px;
+}
+
+.mood-result h3 {
+  color: var(--text-color);
+  margin-top: 8px;
+  font-size: 24px;
+}
+
+.mood-error {
+  color: #ef4444;
+  margin-top: 20px;
+}
+
+
+/* =========================================
+   THEME TOGGLE
+========================================= */
+
+.theme-toggle {
+  border: 1px solid var(--border-color);
+
+  background: var(--card-bg);
+  color: var(--text-color);
+
+  padding: 8px 14px;
+
+  border-radius: 8px;
+
+  cursor: pointer;
+
+  transition: 0.2s;
+}
+
+.theme-toggle:hover {
+  transform: translateY(-1px);
+}
+
+
+/* =========================================
+   FILTER SIDEBAR THEME
+========================================= */
+
+.filter-sidebar {
+  background: var(--card-bg);
+  color: var(--text-color);
+
+  border: 1px solid var(--border-color);
+}
+
+.filter-group select {
+  background: var(--input-bg);
+  color: var(--text-color);
+  border-color: var(--border-color);
+}
+
+
+/* =========================================
+   MOBILE
+========================================= */
+
+@media (max-width: 600px) {
+  .mood-search input {
+    width: 100%;
+    max-width: 420px;
+  }
+
+  .mood-search button {
+    width: 100%;
+    max-width: 420px;
+  }
+
+  .mood-search-container {
+    margin-left: 15px;
+    margin-right: 15px;
+  }
+}

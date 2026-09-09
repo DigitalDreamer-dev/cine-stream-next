@@ -4,10 +4,12 @@ import Navbar from "../../components/Navbar";
 import MovieGrid from "../../components/MovieGrid";
 import EmptyState from "../../components/EmptyState";
 
-import { useFavorites } from "../../context/FavoritesContext";
+import { useSelector } from "react-redux";
 
 export default function FavoritesPage() {
-  const { favorites } = useFavorites();
+  const favorites = useSelector(
+    (state) => state.favorites.favorites
+  );
 
   return (
     <main>

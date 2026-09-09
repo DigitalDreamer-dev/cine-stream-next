@@ -2,11 +2,20 @@
 
 import Link from "next/link";
 import { FaHeart, FaRegHeart } from "react-icons/fa";
+import { useDispatch, useSelector } from "react-redux";
 
-import { useFavorites } from "../context/FavoritesContext";
+import { toggleFavorite } from "../features/favorites/favoritesSlice";
 
 export default function MovieCard({ movie }) {
-  const { toggleFavorite, isFavorite } = useFavorites();
+  const dispatch = useDispatch();
+
+  const favorites = useSelector(
+    (state) => state.favorites.favorites
+  );
+
+  const isFavorite = favorites.some(
+    (item) => item.id === movie.id
+  );
 
   const poster = movie.poster_path
     ? `https://image.tmdb.org/t/p/w500${movie.poster_path}`
@@ -16,7 +25,7 @@ export default function MovieCard({ movie }) {
     event.preventDefault();
     event.stopPropagation();
 
-    toggleFavorite(movie);
+    dispatch(toggleFavorite(movie));
   }
 
   return (
@@ -26,18 +35,31 @@ export default function MovieCard({ movie }) {
         onClick={handleFavorite}
         aria-label="Toggle favorite"
       >
-        {isFavorite(movie.id) ? <FaHeart color="red" /> : <FaRegHeart />}
+        {isFavorite ? (
+          <FaHeart color="red" />
+        ) : (
+          <FaRegHeart />
+        )}
       </button>
 
-      <Link href={`/movie/${movie.id}`} className="movie-link">
-        <img src={poster} alt={movie.title} loading="lazy" />
+      <Link
+        href={`/movie/${movie.id}`}
+        className="movie-link"
+      >
+        <img
+          src={poster}
+          alt={movie.title}
+          loading="lazy"
+        />
 
         <div className="movie-info">
           <h3>{movie.title}</h3>
 
           <p>{movie.release_date?.slice(0, 4)}</p>
 
-          <span>⭐ {movie.vote_average?.toFixed(1)}</span>
+          <span>
+            ⭐ {movie.vote_average?.toFixed(1)}
+          </span>
         </div>
       </Link>
     </div>

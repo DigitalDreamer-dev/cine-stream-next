@@ -1,5 +1,5 @@
 import "./globals.css";
-import { FavoritesProvider } from "../context/FavoritesContext";
+import Providers from "./Providers";
 
 export const metadata = {
   title: "JuzzWatch",
@@ -10,7 +10,7 @@ export default function RootLayout({ children }) {
   return (
     <html lang="en">
       <body>
-        <FavoritesProvider>{children}</FavoritesProvider>
+        <Providers>{children}</Providers>
       </body>
     </html>
   );

@@ -4,6 +4,7 @@ import EmptyState from "../../components/EmptyState";
 import SearchSection from "../../components/SearchSection";
 import MoodSearch from "../../components/MoodSearch";
 import Navbar from "../../components/Navbar";
+import FilterSidebar from "../../components/FilterSidebar";
 
 import { fetchPopularMovies } from "../../lib/tmdb";
 
@@ -24,7 +25,15 @@ export default async function BrowsePage() {
       {movies.length === 0 ? (
         <EmptyState />
       ) : (
-        <InfiniteMovieGrid initialMovies={movies} />
+        <div className="browse-layout">
+          <FilterSidebar />
+
+          <div className="browse-results">
+            <InfiniteMovieGrid
+              initialMovies={movies}
+            />
+          </div>
+        </div>
       )}
     </main>
   );
