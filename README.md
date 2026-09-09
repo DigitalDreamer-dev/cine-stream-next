@@ -1,8 +1,6 @@
 # 🎬 JuzzWatch – Cine-Stream
 
-A modern movie discovery application built with **Next.js 15**, **React**, and the **TMDB API**.
-
-## ✨ Features
+A movie discovery application built with **Next.js 15** and the **TMDB API**.
 
 - 🎥 Browse popular movies
 - 🔍 Search movies
